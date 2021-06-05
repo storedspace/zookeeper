@@ -1,0 +1,38 @@
+.main_triangle{
+    background-color: #ffffff;
+    margin: 0 16px;
+    padding:10px;
+    border-radius: 4px;
+    border: 1px solid #EF8A3D;
+    line-height: 16px;
+    position: relative;
+    flex: 1;
+    font-size: 12px;
+    color: #EF8A3D;
+    background: #FEF5F1;
+    top:200px;
+    width: 200px;
+  }
+  .main_triangle::before{
+    content:" ";
+    border-left: 10px solid transparent;
+    border-right:10px solid transparent;
+    border-bottom:10px solid #EF8A3D;
+    position: absolute;
+    left: 140px;
+    top: -10px;
+  }
+  .main_triangle2{
+    position: relative;
+  }
+  .main_triangle2::before{
+    content:" ";
+    border-left: 10px solid transparent;
+    border-right:10px solid transparent;
+    border-bottom:10px solid #FFFEF5F1;
+    position: absolute;
+    left: 157px;
+    top: -77px;
+  }
+ 
+  
