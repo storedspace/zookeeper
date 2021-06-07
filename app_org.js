@@ -30,7 +30,8 @@ if (port === 3000) {
     console.log('RUN locolhost:3000/');
 }
 
-var f, g, h, i;//store the information of each znode
+//store information of each znode
+var f, g, h, i;
 
 function getData(client, path) {
     client.getData(
