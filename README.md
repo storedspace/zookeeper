@@ -2,9 +2,7 @@
 
 Install Step:
 
-Step1: 
-	
-	Clone this project
+Step1: Clone this project
 
 Step2: 
 	
