@@ -1,22 +1,22 @@
 # zookeeper
 
+Warning: You need to clone this folder before starting these steps.
+
 Install Step:
 
-Step1: Clone this project
-
-Step2: 
+Step1: 
 	
 	npm install node-zookeeper-client --save
 	
-Step3: 
+Step2: 
 	
 	npm install express --save
 	
-Step4: 
+Step3: 
 	
 	npm install ejs --save
 	
-Step5: 
+Step4: 
 	
 	npm install http-proxy -save
 
