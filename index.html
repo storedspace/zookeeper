@@ -10,6 +10,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
         integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -56,7 +57,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form>
+                <form action="/sendform" method="POST">
                     <div class="modal-body">
                     </div>
                     <div class="modal-footer">
@@ -77,6 +78,7 @@
                         <font class="product-intro">口罩</font><br>
                         <font class="product-money">NT$119</font><br>
                         <font class="remain-number">剩餘庫存：</font>
+                        <font class="remain-number"><%= name1 %></font>
                         <form class="buy-form">
                             <font class="number">數量</font>
                             <select name="numList">
@@ -91,7 +93,7 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>&nbsp;&nbsp;&nbsp;
-                            <input class="submit-button" type='button' name='submit' value='加入購物車'
+                            <input id="addCart1" class="submit-button" type='button' name='submit' value='加入購物車'
                                 onclick='saveSelect(this.form.numList, 0)' />
                         </form>
                     </td>
@@ -100,6 +102,7 @@
                         <font class="product-intro">酒精</font><br>
                         <font class="product-money">NT$105</font><br>
                         <font class="remain-number">剩餘庫存：</font>
+                        <font class="remain-number"><%= name2 %></font>
                         <form class="buy-form">
                             <font class="number">數量</font>
                             <select name="numList">
@@ -114,7 +117,7 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>&nbsp;&nbsp;&nbsp;
-                            <input class="submit-button" type='button' name='submit' value='加入購物車'
+                            <input id="addCart2" class="submit-button" type='button' name='submit' value='加入購物車'
                                 onclick='saveSelect(this.form.numList, 1)' />
                         </form>
                     </td>
@@ -123,6 +126,7 @@
                         <font class="product-intro">額溫槍</font><br>
                         <font class="product-money">NT$615</font><br>
                         <font class="remain-number">剩餘庫存：</font>
+                        <font class="remain-number"><%= name3 %></font>
                         <form class="buy-form">
                             <font class="number">數量</font>
                             <select name="numList">
@@ -137,7 +141,7 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>&nbsp;&nbsp;&nbsp;
-                            <input class="submit-button" type='button' name='submit' value='加入購物車'
+                            <input id="addCart3" class="submit-button" type='button' name='submit' value='加入購物車'
                                 onclick='saveSelect(this.form.numList, 2)' />
                         </form>
                     </td>
@@ -146,6 +150,7 @@
                         <font class="product-intro">護目鏡</font><br>
                         <font class="product-money">NT$178</font><br>
                         <font class="remain-number">剩餘庫存：</font>
+                        <font class="remain-number"><%= name4 %></font>
                         <form class="buy-form">
                             <font class="number">數量</font>
                             <select name="numList">
@@ -160,7 +165,7 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>&nbsp;&nbsp;&nbsp;
-                            <input class="submit-button" type='button' name='submit' value='加入購物車'
+                            <input id="addCart4" class="submit-button" type='button' name='submit' value='加入購物車'
                                 onclick='saveSelect(this.form.numList, 3)' />
                         </form>
                     </td>
@@ -170,6 +175,18 @@
     </div>
 </body>
 <script>
+    document.getElementById("addCart1").addEventListener("click",function(){
+        swal("商品已加入購物車", "", "success");
+    });
+    document.getElementById("addCart2").addEventListener("click",function(){
+        swal("商品已加入購物車", "", "success");
+    });
+    document.getElementById("addCart3").addEventListener("click",function(){
+        swal("商品已加入購物車", "", "success");
+    });
+    document.getElementById("addCart4").addEventListener("click",function(){
+        swal("商品已加入購物車", "", "success");
+    });
     $(".button1").click(function(){
         let price = 0;
         let str = "";
@@ -181,7 +198,7 @@
                 str += "<tr><td style='width: 70px; padding-bottom: 10px;'>"+productsName[i]+"</td>";
                 str += "<td style='width: 300px; padding-bottom: 10px;'>";
                 str += "<button type='button' style='font-size: 22px; position: relative; top:2px;'class='fas fa-minus-square' onclick='minus("+i+")'></button>&nbsp";
-                str += "<input id='productNum"+i+"' type='text' style='text-align:center; height: 23px;' name='a' value='"+products[i]+"'size='2' maxlength='10'>";
+                str += "<input id='productNum"+i+"' type='text' style='text-align:center; height: 23px;' name='productNum"+i+"' value='"+products[i]+"'size='2' maxlength='10'>";
                 str += "&nbsp<button type='button' style='font-size: 22px; position: relative; top:2px;' class='fas fa-plus-square' onclick='add("+i+")'></button></td>";
                 str += "<td id='price"+i+"' style='padding-bottom: 10px;'>NT$"+productsPrice[i]*products[i]+"</td></tr>";
                 price+= productsPrice[i]*products[i];
