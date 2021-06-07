@@ -2,8 +2,6 @@
 
 Warning: You need to clone this folder before starting these steps.
 
-Install Step:
-
 Step1: 
 	
 	npm install node-zookeeper-client --save
@@ -18,6 +16,6 @@ Step3:
 	
 Step4: 
 	
-	npm install http-proxy -save
+	npm install http-proxy --save
 
 
