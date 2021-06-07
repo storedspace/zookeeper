@@ -5,6 +5,9 @@ var zookeeper = require('node-zookeeper-client')
 var http = require('http');
 var client = zookeeper.createClient('localhost:2181');
 
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 app.use(express.static('./views'));
 app.set('views', __dirname);
 app.set('view engine', 'html');
@@ -45,28 +48,64 @@ function getData(client, path) {
               console.log(
                 '額溫槍庫存：%s 支', data ? data.toString() : undefined 
               );
-              f = ('額溫槍庫存： '+ data.toString() + ' 支');
+              f = (data.toString() + ' 支');
             }
             else if(path === path2){
               console.log(
                 '口罩庫存：%s 盒', data ? data.toString() : undefined 
               );
-              g = ('口罩庫存： '+ data.toString() + ' 盒');
+              g = (data.toString() + ' 盒');
             }
             else if(path === path3){
               console.log(
                 '酒精庫存：%s 瓶', data ? data.toString() : undefined 
               );
-              h = ('酒精庫存： '+ data.toString() + ' 瓶');
+              h = (data.toString() + ' 瓶');
             }
             else if(path === path4){
               console.log(
                 '護目鏡庫存：%s 支', data ? data.toString() : undefined 
               );
-              i = ('護目鏡庫存： '+ data.toString() + ' 支');
+              i = (data.toString() + ' 支');
             }
         }
     );
+}
+
+function setData(path, data){
+    console.log('Connected to the server.');
+    client.setData(path, data, function (error, stat) {
+        console.log('pathIn');
+        if (error) {
+            console.log('Got error when setting data: ' + error);
+            return;
+        }
+        if(path === path1){
+          console.log(
+            '更改額溫槍庫存為：%s 支', data.toString()
+          );
+          f = (data.toString() + ' 支');
+        }
+        else if(path === path2){
+          console.log(
+            '更改口罩庫存為：%s 盒', data.toString()
+          );
+          g = (data.toString() + ' 盒');
+        }
+        else if(path === path3){
+          console.log(
+            '更改酒精庫存為：%s 瓶', data.toString()
+          );
+          h = (data.toString() + ' 瓶');
+        }
+        else if(path === path4){
+          console.log(
+            '更改護目鏡庫存為：%s 支', data.toString()
+          );
+          i = (data.toString() + ' 支');
+        }
+        //client.close();
+    });
 }
 
 client.once('connected', function () {
@@ -76,9 +115,10 @@ client.once('connected', function () {
     getData(client, path3);
     getData(client, path4);
 
+    //setData(path2, Buffer.from("58"));
+    
     app.get('/', function(req, res) {
-    //res.send('hello world');
-      //res.send(f + "\n" + g + "\n" + h + "\n" + i);
+      //res.send('hello world');
       res.render("index.html",{name1:g, name2:h, name3:f, name4:i});
       // res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});//Show Chinese correctly
       // res.write(f + "<br/>");  
@@ -88,9 +128,13 @@ client.once('connected', function () {
       // res.end();
     });
 
+    app.post('/sendform', urlencodedParser, function(req, res) {
+        console.log('name:' + req.body.a);
+        var num = parseInt(g) - parseInt(req.body.a)
+        setData(path2, Buffer.from(num.toString()));
+    });
+
 });
-
-
 
 client.connect();
 
