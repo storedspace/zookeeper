@@ -1,7 +1,6 @@
 # zookeeper
 
 ## Setup
-You can install the package by following the steps below, or simple use the provided folder "node_modules"
 
 Warning: You need to clone this folder before starting these steps.
 
