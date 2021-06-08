@@ -21,9 +21,6 @@ var path4 = "/test4";//護目鏡（支）
 //var path = process.argv[2];
 
 // check running enviroment
-//var port_ = parseInt(process.argv[3]);
-//var port = process.env.PORT || process.argv[3];
-
 var port;
 
 if(process.argv[2] === "127.0.0.1:2181"){
@@ -37,7 +34,7 @@ if(process.argv[2] === "127.0.0.1:2182"){
 
 if(process.argv[2] === "127.0.0.1:2183"){
   port_ = 5000;
-  port = process.env.PORT || 4000;
+  port = process.env.PORT || 5000;
 }
 
 // create
@@ -100,32 +97,31 @@ function getData(client, path) {
 function setData(path, data){
     console.log('Connected to the server.');
     client.setData(path, data, function (error, stat) {
-        console.log('pathIn');
         if (error) {
             console.log('Got error when setting data: ' + error);
             return;
         }
         if(path === path1){
           console.log(
-            '更改口罩庫存為："%s" 盒', data.toString(),
+            '更改口罩庫存為：%s 盒', data.toString(),
           );
           f = (data.toString() + ' 盒');
         }
         else if(path === path2){
           console.log(
-            '更改酒精庫存為："%s" 瓶', data.toString(),
+            '更改酒精庫存為：%s 瓶', data.toString(),
           );
           g = (data.toString() + ' 瓶');
         }
         else if(path === path3){
           console.log(
-            '更改額溫槍庫存為："%s" 支', data.toString(),
+            '更改額溫槍庫存為：%s 支', data.toString(),
           );
           h = (data.toString() + ' 支');
         }
         else if(path === path4){
           console.log(
-            '更改護目鏡庫存為："%s" 支', data.toString(),
+            '更改護目鏡庫存為：%s 支', data.toString(),
           );
           i = (data.toString() + ' 支');
         }
