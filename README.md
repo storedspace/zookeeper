@@ -20,15 +20,13 @@ Step4:
 	
 	npm install http-proxy --save
 
-<<<<<<< HEAD
 ## How to use
 
 Step1:
 
-	node app.js
+	node app.js 127.0.0.1:<server port>
+	server port: 2181, 2182, 2183
 
 Step2:
 	
 	open browser
-=======
->>>>>>> bfcde600a71b347bc699a4053a0ff349e7d70cf2
