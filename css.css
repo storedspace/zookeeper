@@ -79,6 +79,12 @@ font{
     transition-duration: 0.1s;
     border-radius: 5px;
 }
+.submit-button:hover{
+    opacity: 0.8;
+}
+.submit-button-balck:hover{
+    opacity: 0.8;
+}
 .submit-button-balck{
     background-color: #9696ae; 
     color: white;
