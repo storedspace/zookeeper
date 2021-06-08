@@ -21,8 +21,24 @@ var path4 = "/test4";//護目鏡（支）
 //var path = process.argv[2];
 
 // check running enviroment
-var port_ = parseInt(process.argv[3]);
-var port = process.env.PORT || process.argv[3];
+//var port_ = parseInt(process.argv[3]);
+//var port = process.env.PORT || process.argv[3];
+
+var port;
+
+if(process.argv[2] === "127.0.0.1:2181"){
+  port_ = 3000;
+  port = process.env.PORT || 3000;
+}
+if(process.argv[2] === "127.0.0.1:2182"){
+  port_ = 4000;
+  port = process.env.PORT || 4000;
+}
+
+if(process.argv[2] === "127.0.0.1:2183"){
+  port_ = 5000;
+  port = process.env.PORT || 4000;
+}
 
 // create
 app.listen(port);
