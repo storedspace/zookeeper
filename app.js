@@ -56,10 +56,6 @@ if (port_ === 5000) {
     console.log('RUN locolhost:5000/'); 
 }
 
-<<<<<<< HEAD:app.js
-=======
-
->>>>>>> bfcde600a71b347bc699a4053a0ff349e7d70cf2:app_org.js
 var f, g, h, i;//store the information of each znode
 
 function getData(client, path) {
@@ -111,41 +107,25 @@ function setData(path, data){
         }
         if(path === path1){
           console.log(
-<<<<<<< HEAD:app.js
-            '更改口罩庫存為："%s" 盒', data.toString(),
-=======
             '更改口罩庫存為：%s 盒', data.toString(),
->>>>>>> bfcde600a71b347bc699a4053a0ff349e7d70cf2:app_org.js
           );
           f = (data.toString() + ' 盒');
         }
         else if(path === path2){
           console.log(
-<<<<<<< HEAD:app.js
-            '更改酒精庫存為："%s" 瓶', data.toString(),
-=======
             '更改酒精庫存為：%s 瓶', data.toString(),
->>>>>>> bfcde600a71b347bc699a4053a0ff349e7d70cf2:app_org.js
           );
           g = (data.toString() + ' 瓶');
         }
         else if(path === path3){
           console.log(
-<<<<<<< HEAD:app.js
-            '更改額溫槍庫存為："%s" 支', data.toString(),
-=======
             '更改額溫槍庫存為：%s 支', data.toString(),
->>>>>>> bfcde600a71b347bc699a4053a0ff349e7d70cf2:app_org.js
           );
           h = (data.toString() + ' 支');
         }
         else if(path === path4){
           console.log(
-<<<<<<< HEAD:app.js
-            '更改護目鏡庫存為："%s" 支', data.toString(),
-=======
             '更改護目鏡庫存為：%s 支', data.toString(),
->>>>>>> bfcde600a71b347bc699a4053a0ff349e7d70cf2:app_org.js
           );
           i = (data.toString() + ' 支');
         }
