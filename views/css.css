@@ -1,0 +1,159 @@
+body{
+    margin: 0 0 1em 0;
+}
+div#banner{
+    height: 80px;
+    background-color:#005CAF;
+    padding: 2em 60px 2em 60px;
+    margin-bottom: 0em;  
+    z-index: 5;          
+    position: fixed;      
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    /*opacity: 0.4;*/   
+}
+.right-header{
+    position: absolute;
+    right: 70px;
+    top: 25px;
+}
+.main-body{
+    /*background-color: #e6e6e6;*/
+    padding: 7em 60px 2em;
+}
+.button{
+    color: white;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.button:hover{
+    color: white;
+
+}
+.button1:hover{
+    cursor: hand;
+}
+.product-img{
+    width: 200px;
+    height: 200;
+    margin-bottom: 17px;
+}
+.main-table td{
+    padding: 40px;
+}
+font{
+    font-family: Microsoft JhengHei;
+}
+.product-intro{
+    position: relative;
+    left: 125px;
+    font-size: 19px;
+}
+.product-money{
+    text-align: right;
+    position: relative;
+    left: 125px;
+    font-size: 23px;
+}
+.add-product{
+    position: relative;
+    left: 125px;
+}
+.top-title{
+    color: white;
+    font-size: 28px;
+    position: relative;
+    top: -13px;
+}
+.buy-form{
+    position: relative;
+    top:30px;
+    left:20px;
+}
+.submit-button{
+    background-color: #005CAF; 
+    color: white;
+    border: 2px solid #005CAF;
+    transition-duration: 0.1s;
+    border-radius: 5px;
+}
+.submit-button:hover{
+    opacity: 0.8;
+}
+.submit-button-balck:hover{
+    opacity: 0.8;
+}
+.submit-button-balck{
+    background-color: #9696ae; 
+    color: white;
+    border: 2px solid #9696ae;
+    transition-duration: 0.1s;
+    border-radius: 5px;
+}
+.number{
+    font-size: 18px;
+}
+.remain-number{
+    font-size: 18px;
+    position: relative;
+    top:12px;
+    left:20px;
+}
+/*.circle{
+    color:yellow;
+    position: relative;
+    right: -39px;
+    top: -10px;
+    font-size: 25px;
+}
+#small-num{
+    z-index: 1;  
+    position: relative;
+    right: -260px;
+    top: -12px;
+}*/
+.main_triangle{
+    background-color: #ffffff;
+    margin: 0 16px;
+    padding:10px;
+    border-radius: 4px;
+    border: 1px solid#c0c0d8;
+    line-height: 16px;
+    position: relative;
+    flex: 1;
+    font-size: 12px;
+    color: black;
+    background: #efeff5;
+    top:48px;
+    right:-45px;
+    width: 200px;
+  }
+  .main_triangle::before{
+    content:" ";
+    border-left: 10px solid transparent;
+    border-right:10px solid transparent;
+    border-bottom:10px solid #c0c0d8;
+    position: absolute;
+    left: 145px;
+    top: -10px;
+  }
+  .main_triangle2{
+    position: relative;
+  }
+  .main_triangle2::before{
+    content:" ";
+    border-left: 10px solid transparent;
+    border-right:10px solid transparent;
+    border-bottom:10px solid #FFFEF5F1;
+    position: absolute;
+    left: 157px;
+    top: -77px;
+  }
+  .main_triangle{
+      visibility:hidden;
+  }
+#my-modal-dialog{
+    width: 400px;
+}

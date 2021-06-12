@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>防疫補給站</title>
+    <link rel=stylesheet type="text/css" href="css.css">
+    <script type="text/javascript" src="js.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+        integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- header -->
+    <div id="banner">
+        <table border="0">
+            <tr>
+                <td>
+                    <table border="0">
+                        <tr>
+                            <td>
+                                <font class="top-title">防疫補給站</font>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <div class="right-header">
+                        <table border="0">
+                            <tr>
+                                <td>
+                                    <div class="button1"><button class="fas fa-shopping-cart fa-2x button"
+                                            data-toggle="modal" data-target="#exampleModal"
+                                            style="cursor: hand;"></button></div>
+                                    <div class="main_triangle"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div id="my-modal-dialog" class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">購物車</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/sendform" method="POST">
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="submit-button-balck" data-dismiss="modal">關閉</button>
+                        <input type="submit" class="submit-button" value="確認購買">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- body -->
+    <div class="main-body">
+        <div>
+            <table class="main-table" border="0">
+                <tr>
+                    <td>
+                        <img class="product-img" src="./pictures/mask.jpg"><br>
+                        <font class="product-intro">口罩</font><br>
+                        <font class="product-money">NT$119</font><br>
+                        <font class="remain-number">剩餘庫存：</font>
+                        <font class="remain-number"><%= name1 %></font>
+                        <form class="buy-form">
+                            <font class="number">數量</font>
+                            <select name="numList">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>&nbsp;&nbsp;&nbsp;
+                            <input id="addCart1" class="submit-button" type='button' name='submit' value='加入購物車'
+                                onclick='saveSelect(this.form.numList, 0)' />
+                        </form>
+                    </td>
+                    <td>
+                        <img class="product-img" src="./pictures/alcohol.jpg"><br>
+                        <font class="product-intro">酒精</font><br>
+                        <font class="product-money">NT$105</font><br>
+                        <font class="remain-number">剩餘庫存：</font>
+                        <font class="remain-number"><%= name2 %></font>
+                        <form class="buy-form">
+                            <font class="number">數量</font>
+                            <select name="numList">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>&nbsp;&nbsp;&nbsp;
+                            <input id="addCart2" class="submit-button" type='button' name='submit' value='加入購物車'
+                                onclick='saveSelect(this.form.numList, 1)' />
+                        </form>
+                    </td>
+                    <td>
+                        <img class="product-img" src="./pictures/forehead-thermometer.jpg"><br>
+                        <font class="product-intro">額溫槍</font><br>
+                        <font class="product-money">NT$615</font><br>
+                        <font class="remain-number">剩餘庫存：</font>
+                        <font class="remain-number"><%= name3 %></font>
+                        <form class="buy-form">
+                            <font class="number">數量</font>
+                            <select name="numList">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>&nbsp;&nbsp;&nbsp;
+                            <input id="addCart3" class="submit-button" type='button' name='submit' value='加入購物車'
+                                onclick='saveSelect(this.form.numList, 2)' />
+                        </form>
+                    </td>
+                    <td>
+                        <img class="product-img" src="./pictures/glasses.jpg"><br>
+                        <font class="product-intro">護目鏡</font><br>
+                        <font class="product-money">NT$178</font><br>
+                        <font class="remain-number">剩餘庫存：</font>
+                        <font class="remain-number"><%= name4 %></font>
+                        <form class="buy-form">
+                            <font class="number">數量</font>
+                            <select name="numList">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>&nbsp;&nbsp;&nbsp;
+                            <input id="addCart4" class="submit-button" type='button' name='submit' value='加入購物車'
+                                onclick='saveSelect(this.form.numList, 3)' />
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("addCart1").addEventListener("click",function(){
+        swal("商品已加入購物車", "", "success");
+    });
+    document.getElementById("addCart2").addEventListener("click",function(){
+        swal("商品已加入購物車", "", "success");
+    });
+    document.getElementById("addCart3").addEventListener("click",function(){
+        swal("商品已加入購物車", "", "success");
+    });
+    document.getElementById("addCart4").addEventListener("click",function(){
+        swal("商品已加入購物車", "", "success");
+    });
+    $(".button1").click(function(){
+        let price = 0;
+        let str = "";
+        if (allProductNum != 0) {
+            str += "<table>";
+        }
+        for (let i = 0; i < 4; i++) {
+            if (products[i] != 0) {
+                str += "<tr><td style='width: 70px; padding-bottom: 10px;'>"+productsName[i]+"</td>";
+                str += "<td style='width: 300px; padding-bottom: 10px;'>";
+                str += "<button type='button' style='font-size: 22px; position: relative; top:2px;'class='fas fa-minus-square' onclick='minus("+i+")'></button>&nbsp";
+                str += "<input id='productNum"+i+"' type='text' style='text-align:center; height: 23px;' name='productNum"+i+"' value='"+products[i]+"'size='2' maxlength='10'>";
+                str += "&nbsp<button type='button' style='font-size: 22px; position: relative; top:2px;' class='fas fa-plus-square' onclick='add("+i+")'></button></td>";
+                str += "<td id='price"+i+"' style='padding-bottom: 10px;'>NT$"+productsPrice[i]*products[i]+"</td></tr>";
+                price+= productsPrice[i]*products[i];
+            }
+        }
+        if(allProductNum != 0) {
+            str+="<tr><td colspan='3'>--------------------------------------------------</td></tr>";
+            str += "<tr><td style='width: 70px; padding-bottom: 10px;'>總金額</td>";
+            str += "<td style='width: 300px; padding-bottom: 10px;'></td>";
+            str += "<td id='priceAll' style='padding-bottom: 10px;'>NT$"+price+"</td></tr>";
+            str+="</table>";
+        }
+
+        if(str=="") str+="購物車空空如也～";
+        $(".modal-body").html(str);        
+
+    });
+    $(".button1").hover(function () {
+        // //console.log(products);
+        let price = 0;
+        let str = "";
+        if (allProductNum != 0) {
+            str += "<table>";
+        }
+        for (let i = 0; i < 4; i++) {
+            if (products[i] != 0) {
+                str += "<tr><td style='width: 140px;'><font style='font-size: 15px;'>";
+                str += productsName[i] + " x" + products[i] + "</font></td>";
+                str += "<td><font style='font-size: 15px;'>NT$";
+                str += productsPrice[i] * products[i] + "</font></td></tr>";
+                price += productsPrice[i] * products[i];
+            }
+        }
+        if (allProductNum != 0) {
+            str += "<tr><td colspan='2'>-------------------------------</td></tr>";
+            str += "<tr><td style='width: 140px;'><font style='font-size: 15px;'>";
+            str += "總額</font></td>";
+            str += "<td><font style='font-size: 15px;'>NT$";
+            str += price + "</font></td></tr></table>";
+        }
+        if(str=="") str="<div style='text-align:center;'><font style='font-size: 15px;'>購物車空空如也～</font></div>";
+        $(".main_triangle").html(str);
+        $(".main_triangle").css("visibility", "visible");
+    }, function () {
+        $(".main_triangle").css("visibility", "hidden");
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+</html>
